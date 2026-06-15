@@ -1,0 +1,137 @@
+/* De La Mata — tokens */
+:root {
+  /* Brand palette — rooted in PR campo */
+  --cosecha: #4C9D2F;      /* Verde Cosecha */
+  --cosecha-deep: #3a7d22;
+  --savia: #225A40;        /* Azul Savia — deep green */
+  --savia-deep: #17402d;
+
+  /* Earth accents */
+  --tierra: #B8623A;       /* terracota café */
+  --maduro: #E8A33D;       /* plátano maduro */
+  --crema: #F7F1E3;        /* crema café con leche */
+  --crema-warm: #EFE7D3;
+  --hueso: #FBF8F1;
+
+  /* Neutrals */
+  --ink: #1A1F1A;
+  --ink-soft: #3d4a3d;
+  --muted: #6b7a6b;
+  --line: rgba(34, 90, 64, 0.12);
+  --line-soft: rgba(34, 90, 64, 0.06);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  background: #f0eee9;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.serif {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 30, "WONK" 0;
+  letter-spacing: -0.01em;
+}
+
+.mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+/* Striped placeholder for imagery */
+.img-placeholder {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(34, 90, 64, 0.08) 0 8px,
+      rgba(34, 90, 64, 0.04) 8px 16px
+    ),
+    var(--crema);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 10px;
+}
+.img-placeholder .tag {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  color: var(--savia);
+  background: rgba(255,255,255,0.85);
+  padding: 3px 6px;
+  letter-spacing: 0.04em;
+}
+.img-placeholder.warm {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(184, 98, 58, 0.1) 0 8px,
+      rgba(184, 98, 58, 0.05) 8px 16px
+    ),
+    #F4E8D8;
+}
+.img-placeholder.green {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(76, 157, 47, 0.14) 0 8px,
+      rgba(76, 157, 47, 0.07) 8px 16px
+    ),
+    #E9F0DD;
+}
+
+/* Common scrollbar hide */
+.noscroll::-webkit-scrollbar { display: none; }
+.noscroll { scrollbar-width: none; }
+
+/* Button base */
+.btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.btn-primary {
+  background: var(--savia);
+  color: var(--hueso);
+  padding: 14px 20px;
+  border-radius: 14px;
+}
+.btn-primary:active { background: var(--savia-deep); }
+
+/* Chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 100px;
+  background: var(--crema);
+  color: var(--savia);
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--line-soft);
+  white-space: nowrap;
+}
+.chip.active {
+  background: var(--savia);
+  color: var(--hueso);
+  border-color: transparent;
+}
+
+/* Section label */
+.eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}

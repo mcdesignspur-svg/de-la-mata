@@ -1,0 +1,211 @@
+import { DesignCanvas, DCSection, DCArtboard, DCPostIt } from '../canvas/DesignCanvas';
+import { LeafMark } from '../components/primitives';
+import { ScreenHome } from '../screens/Home';
+import { ScreenFarm } from '../screens/Farm';
+import { ScreenCajita } from '../screens/Cajita';
+import { ScreenCheckout } from '../screens/Checkout';
+import { ScreenAgricultor } from '../screens/Agricultor';
+import { ScreenMapa } from '../screens/Mapa';
+
+function CoverArtboard() {
+  return (
+    <div style={{
+      width: 520, height: 844, background: '#225A40',
+      padding: 48, color: '#F7F1E3', display: 'flex', flexDirection: 'column',
+      position: 'relative', overflow: 'hidden',
+    }}>
+      <div style={{ position: 'absolute', right: -60, top: -60, opacity: 0.1 }}>
+        <LeafMark size={360} color="#F7F1E3"/>
+      </div>
+      <div style={{ position: 'absolute', left: -40, bottom: -40, opacity: 0.06 }}>
+        <LeafMark size={260} color="#E8A33D"/>
+      </div>
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <LeafMark size={28} color="#F7F1E3"/>
+        <span className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#E8A33D' }}>
+          Rough · v0.1 · Abril 2026
+        </span>
+      </div>
+
+      <div style={{ marginTop: 'auto', position: 'relative' }}>
+        <div className="serif" style={{ fontSize: 88, lineHeight: 0.95, fontWeight: 500, letterSpacing: '-0.03em', color: '#F7F1E3' }}>
+          De La<br/>Mata.
+        </div>
+        <div style={{ height: 1, background: 'rgba(247,241,227,0.2)', margin: '32px 0 24px' }}/>
+        <div className="serif" style={{ fontSize: 22, lineHeight: 1.3, color: 'rgba(247,241,227,0.85)', fontWeight: 400, maxWidth: 420 }}>
+          Marketplace agrícola directo de Puerto Rico — del surco a la mesa,
+          sin intermediarios.
+        </div>
+        <div style={{
+          marginTop: 28, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16,
+          fontSize: 12, color: 'rgba(247,241,227,0.7)',
+        }}>
+          <div>
+            <div className="mono" style={{ fontSize: 9, letterSpacing: '0.15em', color: '#E8A33D', marginBottom: 4 }}>PROBLEMA</div>
+            85% de alimentos importados · 33.2% de inseguridad alimentaria
+          </div>
+          <div>
+            <div className="mono" style={{ fontSize: 9, letterSpacing: '0.15em', color: '#E8A33D', marginBottom: 4 }}>APUESTA</div>
+            ATH Móvil · sincronización offline · recogido comunitario
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const palette: [string, string, string][] = [
+  ['#4C9D2F', 'Cosecha', 'primary'],
+  ['#225A40', 'Savia',   'deep'],
+  ['#E8A33D', 'Maduro',  'accent'],
+  ['#B8623A', 'Tierra',  'warm'],
+  ['#F7F1E3', 'Crema',   'surface'],
+  ['#FBF8F1', 'Hueso',   'bg'],
+  ['#1A1F1A', 'Tinta',   'ink'],
+  ['#6b7a6b', 'Musgo',   'muted'],
+];
+
+const openDecisions = [
+  {
+    t: 'Onboarding Bonafide',
+    d: '¿Hacemos onboarding manual via registro Ley 12-2026 (lento pero seguro) o auto-validamos con número de agricultor y confirmamos después?',
+  },
+  {
+    t: 'Modelo de riesgo CSA',
+    d: 'Si la cosecha falla por huracán, ¿cómo se comparte el riesgo? Ideas: crédito rollover, sustitución entre fincas, o subsidio con fondos de la app.',
+  },
+  {
+    t: 'Densidad del mercado',
+    d: 'En el home pesa mucho el producto individual. Alternativa: comenzar por finca, no por producto. Explorar en v0.2.',
+  },
+  {
+    t: 'Logística última milla',
+    d: 'Primera versión: solo recogido comunitario (iglesias, centros). Home delivery llega después cuando haya ruta óptima.',
+  },
+];
+
+export function DeckPage() {
+  return (
+    <DesignCanvas>
+      <DCSection
+        title="De La Mata — Rough"
+        subtitle="Primera pasada. Flujo de consumidor + módulo de agricultor. Explorando la identidad del campo puertorriqueño con un tono limpio y moderno.">
+        <DCArtboard label="Cover · concept">
+          <CoverArtboard/>
+        </DCArtboard>
+
+        <DCArtboard label="Sistema · paleta + tipografía" width={520} height={844} style={{ background: '#FBF8F1' }}>
+          <div style={{ padding: 40, height: '100%', display: 'flex', flexDirection: 'column', gap: 28 }}>
+            <div>
+              <div className="eyebrow">Paleta</div>
+              <div className="serif" style={{ fontSize: 26, fontWeight: 500, marginTop: 2, marginBottom: 16 }}>
+                Del campo, del café, del maduro.
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10 }}>
+                {palette.map(([c, n, r]) => (
+                  <div key={c}>
+                    <div style={{ height: 64, background: c, borderRadius: 10, border: '1px solid rgba(0,0,0,0.06)' }}/>
+                    <div style={{ fontSize: 11, fontWeight: 600, marginTop: 6 }}>{n}</div>
+                    <div className="mono" style={{ fontSize: 9, color: '#6b7a6b' }}>{c} · {r}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <div className="eyebrow">Tipografía</div>
+              <div style={{ marginTop: 10, padding: 16, background: '#fff', borderRadius: 12 }}>
+                <div className="serif" style={{ fontSize: 36, lineHeight: 1, fontWeight: 500, color: '#225A40' }}>
+                  Fresco de la mata.
+                </div>
+                <div style={{ fontSize: 11, color: '#6b7a6b', marginTop: 6 }}>Fraunces · headlines + números</div>
+              </div>
+              <div style={{ marginTop: 8, padding: 16, background: '#fff', borderRadius: 12 }}>
+                <div style={{ fontSize: 16, fontWeight: 500 }}>
+                  Aguacate criollo cortado hoy a las 6am en Hacienda Los Robles.
+                </div>
+                <div style={{ fontSize: 11, color: '#6b7a6b', marginTop: 6 }}>Inter · body + UI</div>
+              </div>
+              <div style={{ marginTop: 8, padding: 16, background: '#fff', borderRadius: 12 }}>
+                <div className="mono" style={{ fontSize: 12, color: '#225A40', letterSpacing: '0.08em' }}>
+                  PR-10427 · BONAFIDE · 2026
+                </div>
+                <div style={{ fontSize: 11, color: '#6b7a6b', marginTop: 6 }}>JetBrains Mono · metadata / tags</div>
+              </div>
+            </div>
+
+            <div style={{ marginTop: 'auto' }}>
+              <div className="eyebrow">Principios</div>
+              <ul style={{ paddingLeft: 16, margin: '8px 0 0', fontSize: 13, color: '#3d4a3d', lineHeight: 1.6 }}>
+                <li>Confianza por transparencia · cada producto cita su finca</li>
+                <li>Offline-first para el campo; el móvil sincroniza cuando puede</li>
+                <li>ATH Móvil como pago default, nada de fricción nueva</li>
+              </ul>
+            </div>
+          </div>
+        </DCArtboard>
+
+        <DCPostIt top={-8} left={1080} rotate={3} width={220}>
+          Abierto a más variaciones — esta es la primera pasada buscando tono. ¿Vamos con tono clásico (como hoy) o algo más editorial / revista-campo?
+        </DCPostIt>
+      </DCSection>
+
+      <DCSection
+        title="Flujo 1 · Consumidor"
+        subtitle="Explorar fincas cerca, entender el origen del producto, suscribirse a la Cajita Local, pagar con ATH Móvil.">
+        <DCArtboard label="1 · Mercado (home)"><ScreenHome/></DCArtboard>
+        <DCArtboard label="2 · Perfil de finca"><ScreenFarm/></DCArtboard>
+        <DCArtboard label="3 · Cajita Local (CSA)"><ScreenCajita/></DCArtboard>
+        <DCArtboard label="4 · Mapa · puntos de recogido"><ScreenMapa/></DCArtboard>
+        <DCArtboard label="5 · Checkout · ATH Móvil"><ScreenCheckout/></DCArtboard>
+
+        <DCPostIt top={200} left={440} rotate={-2} width={190}>
+          Triaje de frescura = timestamp "cortado hoy 6am" en cada item. Lo movemos al chip principal si resuena.
+        </DCPostIt>
+        <DCPostIt top={520} left={1330} rotate={2} width={200}>
+          El mapa es la metáfora fuerte: la geolocalización reduce huella de carbono y es prueba física de "local".
+        </DCPostIt>
+      </DCSection>
+
+      <DCSection
+        title="Flujo 2 · Agricultor"
+        subtitle="47% de hogares rurales sin banda ancha — offline-first, ciclo de vida del cultivo, validación Bonafide Ley 12-2026.">
+        <DCArtboard label="1 · Módulo de producción · offline"><ScreenAgricultor/></DCArtboard>
+
+        <DCArtboard label="Notas · decisiones abiertas" width={480} height={844} style={{ background: '#FBF8F1' }}>
+          <div style={{ padding: 36, height: '100%', display: 'flex', flexDirection: 'column', gap: 20 }}>
+            <div>
+              <div className="eyebrow">Decisiones abiertas</div>
+              <div className="serif" style={{ fontSize: 26, fontWeight: 500, marginTop: 4 }}>
+                Qué nos falta amarrar.
+              </div>
+            </div>
+
+            {openDecisions.map((n, i) => (
+              <div key={i} style={{
+                background: '#fff', padding: 14, borderRadius: 12,
+                border: '1px solid rgba(34,90,64,0.08)',
+                borderLeft: '3px solid #B8623A',
+              }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: '#1A1F1A', marginBottom: 4 }}>{n.t}</div>
+                <div style={{ fontSize: 12, color: '#3d4a3d', lineHeight: 1.5 }}>{n.d}</div>
+              </div>
+            ))}
+
+            <div style={{ marginTop: 'auto', padding: 14, background: '#225A40', borderRadius: 12, color: '#F7F1E3' }}>
+              <div className="mono" style={{ fontSize: 9, letterSpacing: '0.12em', color: '#E8A33D' }}>NORTE</div>
+              <div style={{ fontSize: 13, lineHeight: 1.5, marginTop: 4 }}>
+                Si cada hogar consume $1 diario en local → $1.4M recuperados + 7,300 empleos rurales.
+              </div>
+            </div>
+          </div>
+        </DCArtboard>
+
+        <DCPostIt top={160} left={420} rotate={-3} width={210}>
+          Banner naranja de "sin señal" es la feature más crítica: el campo importa, la señal no.
+        </DCPostIt>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
