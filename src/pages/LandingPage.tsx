@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Icons, LeafMark } from '../components/primitives';
 import { SiteFooter } from '../layout/SiteFooter';
+import heroImage from '../../HERO.PNG';
 
 const stats = [
   { value: '85%', label: 'de alimentos importados en la isla' },
@@ -127,31 +128,38 @@ export function LandingPage() {
         </header>
 
         <section className="landing-hero">
-          <div className="landing-hero-deco landing-hero-deco--a" aria-hidden="true">
-            <LeafMark size={320} color="#F7F1E3" />
-          </div>
-          <div className="landing-hero-deco landing-hero-deco--b" aria-hidden="true">
-            <LeafMark size={220} color="#E8A33D" />
-          </div>
-
-          <div className="container landing-hero-inner">
-            <div className="mono landing-hero-badge">Concept build · v0.1 · Puerto Rico</div>
-            <h1 className="serif landing-hero-title">
-              Del surco<br />a la mesa.
-            </h1>
-            <p className="landing-hero-lede">
-              De La Mata es un marketplace agrícola directo que conecta agricultores
-              puertorriqueños con vecinos de su zona — sin intermediarios, sin importaciones
-              de 4,000 millas, con el idioma del campo.
-            </p>
-            <div className="landing-hero-ctas">
-              <Link to="/mercado" className="btn btn-primary">
-                Explorar el mercado {Icons.arrow(16, '#F7F1E3')}
-              </Link>
-              <Link to="/onboarding" className="btn btn-ghost landing-hero-ghost">
-                Crear cuenta
-              </Link>
+          <div className="landing-hero-grid">
+            <div className="landing-hero-copy">
+              <div className="container landing-hero-inner">
+                <div className="mono landing-hero-badge">Concept build · v0.1 · Puerto Rico</div>
+                <h1 className="serif landing-hero-title">
+                  Del surco<br />a la mesa.
+                </h1>
+                <p className="landing-hero-lede">
+                  De La Mata es un marketplace agrícola directo que conecta agricultores
+                  puertorriqueños con vecinos de su zona — sin intermediarios, sin importaciones
+                  de 4,000 millas, con el idioma del campo.
+                </p>
+                <div className="landing-hero-ctas">
+                  <Link to="/mercado" className="btn btn-primary">
+                    Explorar el mercado {Icons.arrow(16, '#F7F1E3')}
+                  </Link>
+                  <Link to="/onboarding" className="btn btn-ghost landing-hero-ghost">
+                    Crear cuenta
+                  </Link>
+                </div>
+              </div>
             </div>
+
+            <figure className="landing-hero-visual">
+              <img
+                src={heroImage}
+                alt="Agricultores cosechando en el surco y una familia compartiendo la mesa — del campo a la comunidad."
+                width={1200}
+                height={900}
+                fetchPriority="high"
+              />
+            </figure>
           </div>
         </section>
 
