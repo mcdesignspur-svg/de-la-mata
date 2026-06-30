@@ -20,7 +20,7 @@ export function SiteFooter() {
           <div>
             <div className="eyebrow" style={{ color: '#E8A33D', marginBottom: 12 }}>Comprar</div>
             <ul className="site-footer-links">
-              <li><Link to="/">Mercado</Link></li>
+              <li><Link to="/mercado">Mercado</Link></li>
               <li><Link to="/cajita">Cajita Local</Link></li>
               <li><Link to="/mapa">Puntos de recogido</Link></li>
               <li><Link to="/onboarding/consumidor">Crear cuenta</Link></li>
@@ -37,6 +37,7 @@ export function SiteFooter() {
           <div>
             <div className="eyebrow" style={{ color: '#E8A33D', marginBottom: 12 }}>Proyecto</div>
             <ul className="site-footer-links">
+              <li><Link to="/">Inicio</Link></li>
               <li><Link to="/deck">Moodboard / deck</Link></li>
               <li><a href="mailto:hola@delamata.pr">hola@delamata.pr</a></li>
             </ul>

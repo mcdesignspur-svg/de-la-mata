@@ -32,7 +32,7 @@ export function CheckoutPage() {
           Te enviaremos una notificación cuando la cajita esté empacada.
         </p>
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 24 }}>
-          <Link to="/" className="btn btn-primary">Volver al mercado</Link>
+          <Link to="/mercado" className="btn btn-primary">Volver al mercado</Link>
           <Link to="/cajita" className="btn btn-ghost">Suscribirme a la Cajita Local</Link>
         </div>
       </section>
@@ -47,7 +47,7 @@ export function CheckoutPage() {
         <p className="lede">
           Explora el mercado y añade producto fresco — luego vuelves aquí a pagar.
         </p>
-        <Link to="/" className="btn btn-primary" style={{ marginTop: 24 }}>
+        <Link to="/mercado" className="btn btn-primary" style={{ marginTop: 24 }}>
           Ir al mercado {Icons.arrow(16, '#F7F1E3')}
         </Link>
       </section>
