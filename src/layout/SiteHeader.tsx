@@ -5,7 +5,7 @@ import { useCart } from '../cart/CartContext';
 import { useProfile, profileLabels } from '../auth/ProfileContext';
 
 const nav = [
-  { to: '/',              label: 'Mercado' },
+  { to: '/mercado',       label: 'Mercado' },
   { to: '/cajita',        label: 'Cajita Local' },
   { to: '/mapa',          label: 'Mapa' },
   { to: '/agricultores',  label: 'Agricultores' },
@@ -45,7 +45,7 @@ export function SiteHeader() {
             <NavLink
               key={n.to}
               to={n.to}
-              end={n.to === '/'}
+              end={n.to === '/mercado'}
               className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`}
               onClick={() => setOpen(false)}
             >

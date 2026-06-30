@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './cart/CartContext';
 import { ProfileProvider } from './auth/ProfileContext';
 import { SiteLayout } from './layout/SiteLayout';
+import { LandingPage } from './pages/LandingPage';
 import { HomePage } from './pages/HomePage';
 import { FincaPage } from './pages/FincaPage';
 import { CajitaPage } from './pages/CajitaPage';
@@ -23,6 +24,7 @@ export function App() {
         <CartProvider>
           <Routes>
             {/* Standalone routes — no SiteLayout */}
+            <Route path="/" element={<LandingPage />} />
             <Route path="/deck" element={<DeckPage />} />
             <Route path="/onboarding" element={<OnboardingChooser />} />
             <Route path="/onboarding/bonafide" element={<BonafideOnboarding />} />
@@ -31,7 +33,7 @@ export function App() {
 
             {/* Site routes — wrapped in SiteLayout */}
             <Route element={<SiteLayout />}>
-              <Route index element={<HomePage />} />
+              <Route path="mercado" element={<HomePage />} />
               <Route path="finca/:slug" element={<FincaPage />} />
               <Route path="cajita" element={<CajitaPage />} />
               <Route path="mapa" element={<MapaPage />} />

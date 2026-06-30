@@ -16,7 +16,7 @@ export function FincaPage() {
         <p className="lede">
           Revisa el enlace o vuelve al mercado para ver todas las fincas activas.
         </p>
-        <Link to="/" className="btn btn-primary" style={{ marginTop: 16 }}>
+        <Link to="/mercado" className="btn btn-primary" style={{ marginTop: 16 }}>
           Volver al mercado
         </Link>
       </section>
@@ -33,7 +33,7 @@ export function FincaPage() {
         padding: '32px 0 0',
       }}>
         <div className="container">
-          <Link to="/" style={{ fontSize: 13, color: 'var(--savia)', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+          <Link to="/mercado" style={{ fontSize: 13, color: 'var(--savia)', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
             <svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round"/></svg>
             Volver al mercado
           </Link>
