@@ -1216,12 +1216,12 @@ button { font-family: inherit; }
   grid-template-columns: 1fr;
 }
 
-.landing-hero-copy {
-  padding: 48px 0 40px;
+.landing-hero-visual {
+  order: -1;
 }
 
-@media (min-width: 700px) {
-  .landing-hero-copy { padding: 72px 0 80px; }
+.landing-hero-copy {
+  padding: 32px 0 48px;
 }
 
 @media (min-width: 900px) {
@@ -1229,6 +1229,10 @@ button { font-family: inherit; }
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
     align-items: stretch;
     min-height: min(72vh, 640px);
+  }
+
+  .landing-hero-visual {
+    order: 0;
   }
 
   .landing-hero-copy {
@@ -1250,9 +1254,9 @@ button { font-family: inherit; }
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    180deg,
+    0deg,
     var(--savia) 0%,
-    transparent 18%
+    transparent 22%
   );
   pointer-events: none;
   z-index: 1;
