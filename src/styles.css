@@ -1272,7 +1272,15 @@ button { font-family: inherit; }
   .landing-hero-copy {
     display: flex;
     align-items: center;
-    padding: calc(20px + 52px + 48px) 0 56px;
+    justify-content: center;
+    padding: calc(20px + 52px + 48px) clamp(24px, 4vw, 48px) 56px;
+  }
+
+  .landing-hero-inner {
+    width: 100%;
+    max-width: 34rem;
+    margin: 0 auto;
+    padding: 0;
   }
 }
 
