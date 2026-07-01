@@ -138,20 +138,20 @@ export function LandingPage() {
       )}
 
       <div className={`landing-body${contentReady ? ' is-visible' : ''}`}>
-        <header className="landing-header">
-          <Link to="/" className="brand" aria-label="Inicio">
-            <LeafMark size={26} color="#225A40" />
-            <span className="serif brand-word">De La Mata</span>
-          </Link>
-          <div className="landing-header-actions">
-            <Link to="/deck" className="landing-link-muted">Deck</Link>
-            <Link to="/mercado" className="btn btn-primary landing-enter-btn">
-              Entrar al mercado {Icons.arrow(16, '#F7F1E3')}
-            </Link>
-          </div>
-        </header>
-
         <section className="landing-hero">
+          <header className="landing-header">
+            <Link to="/" className="brand" aria-label="Inicio">
+              <LeafMark size={26} color="#225A40" />
+              <span className="serif brand-word">De La Mata</span>
+            </Link>
+            <div className="landing-header-actions">
+              <Link to="/deck" className="landing-link-muted">Deck</Link>
+              <Link to="/mercado" className="btn btn-primary landing-enter-btn">
+                Entrar al mercado {Icons.arrow(16, '#F7F1E3')}
+              </Link>
+            </div>
+          </header>
+
           <div className="landing-hero-grid">
             <div className="landing-hero-copy">
               <div className="container landing-hero-inner">
