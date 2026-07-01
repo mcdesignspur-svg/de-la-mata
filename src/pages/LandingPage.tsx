@@ -56,6 +56,8 @@ const features = [
   },
 ];
 
+const ROLE_IMAGE_SIZES = '(min-width: 800px) 33vw, 100vw';
+
 const roles = [
   {
     tier: 'Tier 1 · Profesional',
@@ -65,6 +67,11 @@ const roles = [
     bg: 'var(--savia)',
     fg: 'var(--crema)',
     accent: 'var(--maduro)',
+    image: {
+      src: '/images/roles/agricultor-800.webp',
+      srcSet: '/images/roles/agricultor-400.webp 400w, /images/roles/agricultor-800.webp 800w',
+      alt: 'Agricultor bonafide en el conuco con su cosecha.',
+    },
   },
   {
     tier: 'Tier 2 · Comunitario',
@@ -74,6 +81,11 @@ const roles = [
     bg: '#FAEBC2',
     fg: '#5a4a2a',
     accent: '#8a3a1f',
+    image: {
+      src: '/images/roles/patio-800.webp',
+      srcSet: '/images/roles/patio-400.webp 400w, /images/roles/patio-800.webp 800w',
+      alt: 'Vecino compartiendo quenepas y excedentes del patio.',
+    },
   },
   {
     tier: 'Cliente',
@@ -83,6 +95,11 @@ const roles = [
     bg: '#fff',
     fg: 'var(--ink)',
     accent: 'var(--savia)',
+    image: {
+      src: '/images/roles/consumidor-800.webp',
+      srcSet: '/images/roles/consumidor-400.webp 400w, /images/roles/consumidor-800.webp 800w',
+      alt: 'Familia recogiendo su Cajita Local en un punto comunitario.',
+    },
   },
 ];
 
@@ -240,26 +257,39 @@ export function LandingPage() {
                   ...(r.bg === '#fff' ? { border: '1px solid var(--line-soft)' } : {}),
                 }}
               >
-                <div className="mono landing-role-tier" style={{ color: r.accent }}>
-                  {r.tier}
+                <figure className="landing-role-visual">
+                  <img
+                    src={r.image.src}
+                    srcSet={r.image.srcSet}
+                    sizes={ROLE_IMAGE_SIZES}
+                    alt={r.image.alt}
+                    width={800}
+                    height={800}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+
+                <div className="landing-role-body">
+                  <div className="mono landing-role-tier" style={{ color: r.accent }}>
+                    {r.tier}
+                  </div>
+                  <h3 className="serif landing-role-title">{r.title}</h3>
+                  <p className="landing-role-desc">{r.description}</p>
+                  <Link
+                    to={r.to}
+                    className="btn landing-role-cta"
+                    style={{
+                      ...(r.title === 'Agricultor Bonafide'
+                        ? { background: 'var(--maduro)', color: 'var(--savia)' }
+                        : r.title === 'Cosecha de Patio'
+                          ? { background: 'var(--savia)', color: 'var(--crema)' }
+                          : { background: 'var(--savia)', color: 'var(--crema)' }),
+                    }}
+                  >
+                    Empezar onboarding {Icons.arrow(16, r.title === 'Agricultor Bonafide' ? '#225A40' : '#F7F1E3')}
+                  </Link>
                 </div>
-                <h3 className="serif landing-role-title">{r.title}</h3>
-                <p className="landing-role-desc">{r.description}</p>
-                <Link
-                  to={r.to}
-                  className="btn"
-                  style={{
-                    marginTop: 16,
-                    width: '100%',
-                    ...(r.title === 'Agricultor Bonafide'
-                      ? { background: 'var(--maduro)', color: 'var(--savia)' }
-                      : r.title === 'Cosecha de Patio'
-                        ? { background: 'var(--savia)', color: 'var(--crema)' }
-                        : { background: 'var(--savia)', color: 'var(--crema)' }),
-                  }}
-                >
-                  Empezar onboarding {Icons.arrow(16, r.title === 'Agricultor Bonafide' ? '#225A40' : '#F7F1E3')}
-                </Link>
               </div>
             ))}
           </div>
