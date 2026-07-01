@@ -131,7 +131,7 @@ export function LandingPage() {
           aria-hidden={splashExiting}
         >
           <div className="landing-splash-leaf">
-            <LeafMark size={88} color="#F7F1E3" />
+            <LeafMark size={88} color="var(--maduro)" veinColor="var(--crema)" />
           </div>
           <div className="landing-splash-brand serif">De La Mata</div>
         </div>
