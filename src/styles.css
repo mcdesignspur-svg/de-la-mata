@@ -1222,6 +1222,7 @@ button { font-family: inherit; }
 .landing-enter-btn {
   padding: 10px 16px;
   font-size: 14px;
+  border-radius: 100px;
 }
 
 .landing-hero {
