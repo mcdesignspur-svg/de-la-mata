@@ -1268,6 +1268,13 @@ button { font-family: inherit; }
   }
 }
 
+.landing-hero-visual picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+}
+
 .landing-hero-visual img {
   display: block;
   width: 100%;

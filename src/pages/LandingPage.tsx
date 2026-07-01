@@ -2,7 +2,14 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Icons, LeafMark } from '../components/primitives';
 import { SiteFooter } from '../layout/SiteFooter';
-import heroImage from '../../HERO.PNG';
+
+const HERO_SRCSET = [
+  '/images/hero/hero-640.webp 640w',
+  '/images/hero/hero-960.webp 960w',
+  '/images/hero/hero-1280.webp 1280w',
+].join(', ');
+
+const HERO_SIZES = '(min-width: 900px) 50vw, 100vw';
 
 const stats = [
   { value: '85%', label: 'de alimentos importados en la isla' },
@@ -152,13 +159,19 @@ export function LandingPage() {
             </div>
 
             <figure className="landing-hero-visual">
-              <img
-                src={heroImage}
-                alt="Agricultores cosechando en el surco y una familia compartiendo la mesa — del campo a la comunidad."
-                width={1200}
-                height={900}
-                fetchPriority="high"
-              />
+              <picture>
+                <source type="image/webp" srcSet={HERO_SRCSET} sizes={HERO_SIZES} />
+                <img
+                  src="/images/hero/hero-1280.webp"
+                  srcSet={HERO_SRCSET}
+                  sizes={HERO_SIZES}
+                  alt="Agricultores cosechando en el surco y una familia compartiendo la mesa — del campo a la comunidad."
+                  width={1280}
+                  height={1024}
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </picture>
             </figure>
           </div>
         </section>
