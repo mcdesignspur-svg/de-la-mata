@@ -1184,7 +1184,7 @@ button { font-family: inherit; }
     max-width: none;
     height: 52px;
     margin: 0;
-    padding: 0 10px 0 22px;
+    padding: 0 14px 0 22px;
     border-radius: 100px;
     border-bottom: none;
     background: rgba(251, 248, 241, 0.9);
@@ -1220,9 +1220,16 @@ button { font-family: inherit; }
 }
 
 .landing-enter-btn {
-  padding: 10px 16px;
-  font-size: 14px;
+  padding: 8px 13px;
+  font-size: 13px;
   border-radius: 100px;
+}
+
+@media (min-width: 900px) {
+  .landing-enter-btn {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
 }
 
 .landing-hero {

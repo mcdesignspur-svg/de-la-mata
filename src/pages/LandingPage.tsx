@@ -147,7 +147,7 @@ export function LandingPage() {
             <div className="landing-header-actions">
               <Link to="/deck" className="landing-link-muted">Deck</Link>
               <Link to="/mercado" className="btn btn-primary landing-enter-btn">
-                Entrar al mercado {Icons.arrow(16, '#F7F1E3')}
+                Entrar al mercado {Icons.arrow(14, '#F7F1E3')}
               </Link>
             </div>
           </header>
